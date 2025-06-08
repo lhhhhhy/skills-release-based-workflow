@@ -16,59 +16,55 @@ _Create a release based workflow that is built on the foundations of the GitHub 
 </header>
 
 <!--
-  <<< Author notes: Step 2 >>>
+  <<< Author notes: Step 6 >>>
   Start this step by acknowledging the previous step.
   Define terms and link to docs.github.com.
 -->
 
-## Step 2: Add a new feature to the release branch
+## Step 6: Commit a hotfix to the release
 
-_Great job creating a beta release :heart:_
+_Almost there :heart:_
 
-### Release management
+Notice that I didn't delete the branch? That's intentional.
 
-As you prepare for a future release, you'll need to organize more than the tasks and features. It's important to create a clear workflow for your team, and to make sure that the work remains organized.
+Sometimes mistakes can happen with releases, and we'll want to be able to correct them on the same branch.
 
-There are several strategies for managing releases. Some teams might use long-lived branches, like `production`, `dev`, and `main`. Some teams use simple feature branches, releasing from the main branch.
+Now that your release is finalized, we have a confession to make. Somewhere in our recent update, I made a mistake and introduced a bug. Instead of changing the text colors to green, we changed the whole game background.
 
-No one strategy is better than another. We always recommend being intentional about branches and reducing long-lived branches whenever possible.
+_Tip: Sometimes GitHub Pages takes a few minutes to update. Your page might not immediately show the recent updates you've made._
 
-In this exercise, you'll use the `release-v1.0` branch to be your one long-lived branch per release version.
+![image](https://user-images.githubusercontent.com/13326548/48045461-487dd800-e145-11e8-843c-b91a82213eb8.png)
 
-### Protected branches
+"Hotfixes", or a quick fix to address a bug in software, are a normal part of development. Oftentimes you'll see application updates whose only description is "bug fixes".
 
-Like the `main` branch, you can protect release branches. This means you can protect branches from force pushes or accidental deletion. This is already configured in this repository.
+When bugs come up after you release a version, you'll need to address them. We've already created a `hotfix-v1.0.1` and `fix-game-background` branches for you to start.
 
-### Add a feature
+We'll submit a hotfix by creating and merging the pull request.
 
-Releases are usually made of many smaller changes. Let's pretend we don't know about the bug we added earlier and we'll focus on a few features to update our game before the version update.
+### :keyboard: Activity: Create and merge the hotfix pull request
 
-- You should update the page background color to black.
-- I'll help you change the text colors to green.
+1. Open a pull request with `hotfix-v1.0.1` as the `base` branch, and `fix-game-background` as the `compare` branch.
+1. Fill in the pull request template to describe your changes. You can set the pull request title to "Hotfix for broken game style". You can include a detailed pull request body, an example is below:
+   ```
+   ## Description:
+   - Fixed bug, set game background back to black
+   ```
+1. Review the changes and click **Create pull request**.
+1. We want to merge this into our hotfix branch now so click **Merge pull request**.
 
-### :keyboard: Activity: Update `base.css`
+Now we want these changes merged into `main` as well so let's create and merge a pull request with our hotfix to `main`.
 
-1. Create a new branch off of the `main` branch and change the `body` CSS declaration in `base.css` to match what is below. This will set the page background to black.
+### :keyboard: Activity: Create the release pull request
 
-```
-body {
-    background-color: black;
-}
-```
-
-1. Open a pull request with `release-v1.0` as the `base` branch, and your new branch as the `compare` branch.
-1. Fill in the pull request template to describe your changes.
-1. Click **Create pull request**.
-
-### Merge the new feature to the release branch
-
-Even with releases, the GitHub flow is still an important strategy for working with your team. It's a good idea to use short-lived branches for quick feature additions and bug fixes.
-
-Merge this feature pull request so that you can open the release pull request as early as possible.
-
-### :keyboard: Activity: Merge the pull request
-
-1. Click **Merge pull request**, and delete your branch.
+1. Open a pull request with `main` as the `base` branch, and `hotfix-v1.0.1` as the `compare` branch.
+1. Ensure the title of your pull request is "Hotfix v1.0.1".
+1. Include a detailed pull request body, an example is below:
+   ```
+   ## Description:
+   - Fixed bug introduced in last production release - set game background back to black
+   ```
+1. Review the changes and click **Create pull request**.
+1. Click **Merge pull request**.
 1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
 
 <footer>
